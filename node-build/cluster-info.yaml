@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: 
+      $CLUSTER_Certificate_Authority_Data
+    server: $CLUSTER_SERVER
+  name: local
+contexts:
+- context:
+    cluster: local
+    user: $CLUSTER_NAME
+  name: cls-66l0m0vl-context-default
+current-context: cls-66l0m0vl-context-default
+kind: Config
+preferences: {}
+users:
+- name: $CLUSTER_NAME
+  user:
+    token: $CLUSTER_USER_TOKEN
