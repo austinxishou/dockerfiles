@@ -9,8 +9,8 @@ contexts:
 - context:
     cluster: local
     user: $CLUSTER_NAME
-  name: cls-66l0m0vl-context-default
-current-context: cls-66l0m0vl-context-default
+  name: cls-d6vo0yl7-context-default
+current-context: cls-d6vo0yl7-context-default
 kind: Config
 preferences: {}
 users:
