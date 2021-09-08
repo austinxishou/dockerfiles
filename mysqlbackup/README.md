@@ -27,13 +27,15 @@ DB_DUMP_DEBUG: 是否开启日志输出
 DB_DUMP_BY_SCHEMA: 是否把schema定义和数据分开(非必填,默认为false)
 DB_DUMP_KEEP_PERMISSIONS: 是否把权限保存为文件(非必填,默认为true)
 MYSQLDUMP_OPTS: mysqldump 命令额外参数
-
+DB_DUMP_TARGET: 备份保存方式,可以设置多个保存路径,用空格分开
+  - local: 本地文件保存, 用/开始
+  - s3: s3://bucketname/path
+  - oss: oss://bucketname/path
 
 ### 阿里 OSS
-OSS_END_POINT: bucket所在地域名信息,详情参考 [访问域名和数据中心](https://help.aliyun.com/document_detail/31837.html?spm=5176.8465980.help.49.4e701450eJafpo#concept-zt4-cvy-5db)
-OSS_ACCESS_KEYID: AccessKeyId
-OSS_ACCESS_SECRET: AccessKey secret
-OSS_DEFAULT_BUCKET: 默认所在的bucket
+OSS_ENDPOINT: bucket所在地域名信息,详情参考 [访问域名和数据中心](https://help.aliyun.com/document_detail/31837.html?spm=5176.8465980.help.49.4e701450eJafpo#concept-zt4-cvy-5db)
+OSS_AKI: AccessKeyId
+OSS_AKS: AccessKey secret
 
 
 ## 主要函数

@@ -204,6 +204,10 @@ function backup_target() {
       [ -n "$DB_DUMP_KEEP_PERMISSIONS" -a "$DB_DUMP_KEEP_PERMISSIONS" = "false" ] && cpOpts=""
       cp $cpOpts ${TMPDIR}/${SOURCE} ${uri[path]}/${TARGET}
       ;;
+    "oss")
+      ossutil64 config -e "${OSS_ENDPOINT}" -i "${OSS_AKI}" -k "${OSS_AKS}"
+      ossutil64 cp -f ${TMPDIR}/${SOURCE} "${DB_DUMP_TARGET}/${TARGET}"
+      ;;
     "s3")
       # allow for endpoint url override
       [[ -n "$AWS_ENDPOINT_URL" ]] && AWS_ENDPOINT_OPT="--endpoint-url $AWS_ENDPOINT_URL"

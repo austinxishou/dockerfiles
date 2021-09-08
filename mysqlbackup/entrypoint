@@ -31,6 +31,10 @@ file_env "AWS_ACCESS_KEY_ID"
 file_env "AWS_SECRET_ACCESS_KEY"
 file_env "AWS_DEFAULT_REGION"
 
+file_env "OSS_ENDPOINT"
+file_env "OSS_AKI"
+file_env "OSS_AKS" 
+
 file_env "SMB_USER"
 file_env "SMB_PASS"
 
@@ -110,6 +114,9 @@ if [[ -n "$DB_RESTORE_TARGET" ]]; then
   uri_parser ${DB_RESTORE_TARGET}
   if [[ "${uri[schema]}" == "file" ]]; then
     cp $DB_RESTORE_TARGET $TMPRESTORE 2>/dev/null
+  elif [[ "${uri[schema]}" == "oss" ]]; then
+    ossutil64 config -e "${OSS_ENDPOINT}" -i "${OSS_AKI}" -k "${OSS_AKS}"
+    ossutil64 cp -f ${TMPDIR}/${SOURCE} "${DB_DUMP_TARGET}/${TARGET}"
   elif [[ "${uri[schema]}" == "s3" ]]; then
     [[ -n "$AWS_ENDPOINT_URL" ]] && AWS_ENDPOINT_OPT="--endpoint-url $AWS_ENDPOINT_URL"
       aws ${AWS_CLI_OPTS} ${AWS_ENDPOINT_OPT} s3 cp ${AWS_CLI_S3_CP_OPTS} "${DB_RESTORE_TARGET}" $TMPRESTORE
