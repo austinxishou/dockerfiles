@@ -91,7 +91,7 @@ function uri_parser() {
 #
 function do_dump() {
   # what is the name of our source and target?
-  now=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+  now=$(date +"%Y-%m-%dT%H:%M:%SZ")
   # SOURCE: file that the uploader looks for when performing the upload
   # TARGET: the remote file that is actually uploaded
 
