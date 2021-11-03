@@ -8,13 +8,13 @@ clusters:
 contexts:
 - context:
     cluster: $CLUSTER_ID
-    user: $CLUSTER_USER
+    user: "$CLUSTER_USER"
   name: $CLUSTER_CONTEXT_NAME
 current-context: $CLUSTER_CONTEXT_NAME
 kind: Config
 preferences: {}
 users:
-- name: $CLUSTER_NAME
+- name: "$CLUSTER_USER"
   user:
     client-certificate-data: $CLUSTER_Client_Certificate_Data
     client-key-data: $CLUSTER_Client_Key_Data
