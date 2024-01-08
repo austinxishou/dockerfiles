@@ -42,3 +42,21 @@ OSS_AKS: AccessKey secret
 
 - do_dump
 - backup_target
+
+## 示例
+```
+docker run -itd --name mysql-backup \
+--env DB_DUMP_BEGIN=0430 \
+--env DB_SERVER=192.168.1.2 \
+--env DB_PORT=3306 \
+--env DB_USER=root \
+--env DB_PASS=123456 \
+--env DB_NAMES="test-db" \
+--env MYSQLDUMP_OPTS="--ignore-table=test-db.api_access_log --ignore-table=test-db.api_error_log" \
+--env OSS_ENDPOINT=oss-cn-hangzhou.aliyuncs.com  \
+--env OSS_AKI=LT************ \
+--env OSS_AKS=rb************ \
+--env DB_DUMP_TARGET="oss://devops/test-db-backup" \
+-v $(pwd):/dbbackup \
+austindev/mysql-backup:1.0.1
+```
