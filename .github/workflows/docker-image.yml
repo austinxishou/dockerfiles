@@ -3,6 +3,7 @@ name: Pull from DockerHub and Push to Alibaba Cloud Container Registry
 on:
   push:
     branches: [ "master" ]
+  workflow_dispatch:
 env:
   DOCKERHUB_IMAGE: "mysql"  # 要拉取的DockerHub镜像
   TAG: "5.7-aarch64"                    # 镜像标签
