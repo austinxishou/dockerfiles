@@ -1,0 +1,39 @@
+name: Pull from DockerHub and Push to Alibaba Cloud Container Registry
+
+on:
+  push:
+    branches: [ "master" ]
+env:
+  DOCKERHUB_IMAGE: "library/nginx"  # 要拉取的DockerHub镜像
+  TAG: "latest"                    # 镜像标签
+  ALIYUN_NAMESPACE: "your-namespace"  # 阿里云命名空间
+  ALIYUN_REPO: "nginx"             # 阿里云仓库名
+jobs:
+  pull-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login to Alibaba Cloud Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: registry.cn-hangzhou.aliyuncs.com
+          username: ${{ secrets.ALIYUN_USERNAME }}
+          password: ${{ secrets.ALIYUN_PASSWORD }}
+      
+      - name: Pull image from DockerHub
+        run: |
+          docker pull ${{ env.DOCKERHUB_IMAGE }}:${{ env.TAG }}
+      - name: Tag image for Alibaba Cloud
+        run: |
+          docker tag ${{ env.DOCKERHUB_IMAGE }}:${{ env.TAG }} \
+            registry.cn-hangzhou.aliyuncs.com/${{ env.ALIYUN_NAMESPACE }}/${{ env.ALIYUN_REPO }}:${{ env.TAG }}
+
+      - name: Push image to Alibaba Cloud
+        run: |
+          docker push registry.cn-hangzhou.aliyuncs.com/${{ env.ALIYUN_NAMESPACE }}/${{ env.ALIYUN_REPO }}:${{ env.TAG }}
