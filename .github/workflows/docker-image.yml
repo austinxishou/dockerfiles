@@ -4,10 +4,10 @@ on:
   push:
     branches: [ "master" ]
 env:
-  DOCKERHUB_IMAGE: "library/nginx"  # 要拉取的DockerHub镜像
-  TAG: "latest"                    # 镜像标签
-  ALIYUN_NAMESPACE: "your-namespace"  # 阿里云命名空间
-  ALIYUN_REPO: "nginx"             # 阿里云仓库名
+  DOCKERHUB_IMAGE: "mysql"  # 要拉取的DockerHub镜像
+  TAG: "5.7-aarch64"                    # 镜像标签
+  ALIYUN_NAMESPACE: "kulchao-public"  # 阿里云命名空间
+  ALIYUN_REPO: "mysql"             # 阿里云仓库名
 jobs:
   pull-and-push:
     runs-on: ubuntu-latest
