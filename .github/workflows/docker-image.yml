@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 env:
   DOCKERHUB_IMAGE: "mysql"  # 要拉取的DockerHub镜像
-  TAG: "5.7-aarch64"                    # 镜像标签
+  TAG: "5.7.44-oracle"                    # 镜像标签
   ALIYUN_NAMESPACE: "kulchao-public"  # 阿里云命名空间
   ALIYUN_REPO: "mysql"             # 阿里云仓库名
 jobs:
