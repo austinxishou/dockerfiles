@@ -5,10 +5,10 @@ on:
     branches: [ "master" ]
   workflow_dispatch:
 env:
-  DOCKERHUB_IMAGE: "arm64v8/mysql"  # 要拉取的DockerHub镜像
+  DOCKERHUB_IMAGE: "docker.elastic.co/elasticsearch/elasticsearch"  # 要拉取的DockerHub镜像
   TAG: "8"                    # 镜像标签
   ALIYUN_NAMESPACE: "kulchao-public"  # 阿里云命名空间
-  ALIYUN_REPO: "mysql"             # 阿里云仓库名
+  ALIYUN_REPO: "elasticsearch"             # 阿里云仓库名
 jobs:
   pull-and-push:
     runs-on: ubuntu-latest
