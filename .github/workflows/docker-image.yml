@@ -5,7 +5,7 @@ on:
     branches: [ "master" ]
   workflow_dispatch:
 env:
-  DOCKERHUB_IMAGE: "arm64/openjdk"  # 要拉取的DockerHub镜像
+  DOCKERHUB_IMAGE: "arm64v8/openjdk"  # 要拉取的DockerHub镜像
   TAG: "8u342-jdk"                    # 镜像标签
   ALIYUN_NAMESPACE: "kulchao-public"  # 阿里云命名空间
   ALIYUN_REPO: "java"             # 阿里云仓库名
