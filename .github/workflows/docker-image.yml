@@ -5,10 +5,10 @@ on:
     branches: [ "master" ]
   workflow_dispatch:
 env:
-  DOCKERHUB_IMAGE: "arm64v8/openjdk"  # 要拉取的DockerHub镜像
-  TAG: "8u322"                    # 镜像标签
+  DOCKERHUB_IMAGE: "arm64v8/nginx"  # 要拉取的DockerHub镜像
+  TAG: "1.29.3-alpine3.22"                    # 镜像标签
   ALIYUN_NAMESPACE: "kulchao-public"  # 阿里云命名空间
-  ALIYUN_REPO: "arm64v8-java"             # 阿里云仓库名
+  ALIYUN_REPO: "arm64v8-nginx"             # 阿里云仓库名
 jobs:
   pull-and-push:
     runs-on: ubuntu-latest
