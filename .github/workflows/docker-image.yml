@@ -5,10 +5,10 @@ on:
     branches: [ "master" ]
   workflow_dispatch:
 env:
-  DOCKERHUB_IMAGE: "qdrant/qdrant"  # 要拉取的DockerHub镜像
-  TAG: "v1.17"                    # 镜像标签
+  DOCKERHUB_IMAGE: "nacos/nacos-server"  # 要拉取的DockerHub镜像
+  TAG: "v3.2.0"                    # 镜像标签
   ALIYUN_NAMESPACE: "kulchao-public"  # 阿里云命名空间
-  ALIYUN_REPO: "qdrant"             # 阿里云仓库名
+  ALIYUN_REPO: "nacos"             # 阿里云仓库名
 jobs:
   pull-and-push:
     runs-on: ubuntu-latest
