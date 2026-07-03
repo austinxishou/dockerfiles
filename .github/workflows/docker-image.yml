@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 env:
   DOCKERHUB_IMAGE: "canal/canal-server"  # 要拉取的DockerHub镜像
-  TAG: "v1.1.6"                    # 镜像标签
+  TAG: "v1.1.8"                    # 镜像标签
   ALIYUN_NAMESPACE: "kulchao-public"  # 阿里云命名空间
   ALIYUN_REPO: "canal"             # 阿里云仓库名
 jobs:
